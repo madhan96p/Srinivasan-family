@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grand Celebration | Srinivasan Pillai & Family</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Great+Vibes&family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script
+      data-goatcounter="https://YOUR_SITE.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+  </head>
+  <body class="no-scroll">
+    <div id="door-overlay" onclick="openDoors()">
+      <div class="door door-left">
+        <div class="door-text font-display">
+          Jeganraj & Niranjanadevi<br /><span class="italic text-sm"
+            >Reception</span
+          >
+        </div>
+      </div>
+      <div class="door door-right">
+        <div class="door-text font-display">
+          Srinivasan & Sumathi<br /><span class="italic text-sm"
+            >60th Anniversary</span
+          >
+        </div>
+      </div>
+      <div class="door-seal font-script">60</div>
+      <p class="click-hint">Tap to Enter</p>
+    </div>
+ 
+    <audio id="bg-music" loop>
+      <source src="assets/background-music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <button id="audio-btn" class="audio-toggle" aria-label="Toggle Music">
+      <i class="fa-solid fa-music"></i>
+    </button>
+
+    <main class="container">
+      <section class="hero animate-on-scroll">
+        <div class="deity-container">
+          <img src="assets/ganesha.webp" alt="Lord Ganesha" class="deity-img" />
+        </div>
+        <p class="subtitle">With the Blessings of the Almighty</p>
+        <h1 class="title font-display">You are Cordially<br />Invited</h1>
+        <div class="divider"></div>
+        <p class="tagline">To celebrate two joyous milestones in our family</p>
+      </section>
+
+      <section class="event-card animate-on-scroll">
+        <p class="event-label">Event One</p>
+        <h2 class="font-display event-title">Wedding Reception</h2>
+        <p class="honour-text">In honour of</p>
+        <h3 class="font-script names">Jeganraj <span>&</span> Niranjanadevi</h3>
+
+        <img
+          src="assets/JN_Reception.jpeg"
+          alt="Reception Invitation"
+          class="invite-img"
+          onclick="openImageModal(this.src)"
+        />
+
+        <div class="date-box">
+          <p class="date">Tuesday, July 7th, 2026</p>
+          <p class="time">6:00 PM onwards</p>
+        </div>
+      </section>
+
+      <section class="event-card animate-on-scroll">
+        <p class="event-label">Event Two</p>
+        <h2 class="font-display event-title">60th Wedding Anniversary</h2>
+        <p class="sub-event font-display italic">Sashtiapthapoorthi</p>
+        <p class="honour-text">In honour of our beloved parents</p>
+        <h3 class="font-script names">Srinivasan <span>&</span> Sumathi</h3>
+
+        <img
+          src="assets/SS 60.jpeg"
+          alt="60th Anniversary Invitation"
+          class="invite-img"
+          onclick="openImageModal(this.src)"
+        />
+
+        <div class="date-box">
+          <p class="date">Wednesday, July 8th, 2026</p>
+          <p class="time">9:00 AM to 10:30 AM</p>
+        </div>
+      </section>
+
+      <footer class="footer animate-on-scroll">
+        <div class="divider"></div>
+        <p>We look forward to your gracious presence.</p>
+        <h4 class="font-display">Srinivasan Pillai & Family</h4>
+        <br /><br /><br />
+      </footer>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn" onclick="openModal('location-modal')">
+        <i class="fa-solid fa-location-dot"></i><br /><span>Venue</span>
+      </button>
+      <button class="nav-btn rsvp-btn" onclick="openModal('rsvp-modal')">
+        <i class="fa-brands fa-whatsapp"></i><br /><span>RSVP</span>
+      </button>
+      <button class="nav-btn" onclick="openModal('calendar-modal')">
+        <i class="fa-solid fa-calendar-days"></i><br /><span>Calendar</span>
+      </button>
+    </nav>
+
+    <div id="location-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('location-modal')">×</span>
+        <h2 class="font-display">The Venue</h2>
+        <div class="divider"></div>
+        <p class="modal-text">
+          <strong>Arulmigu Sri Veezhinathar Temple</strong
+          ><br />Thiruveezhimizhalai
+        </p>
+        <a
+          href="https://www.google.com/maps/search/Arulmigu+Sri+Veezhinathar+Temple+Thiruveezhimizhalai"
+          target="_blank"
+          class="premium-btn"
+          >Open in Google Maps</a
+        >
+      </div>
+    </div>
+
+    <div id="rsvp-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('rsvp-modal')">×</span>
+        <h2 class="font-display">RSVP</h2>
+        <div class="divider"></div>
+        <p class="modal-text">
+          Please let us know if you will be joining us for the celebrations.
+        </p>
+        <a
+          href="https://wa.me/919976209303?text=Hello%20Srinivasan,%20I/We%20will%20be%20attending%20the%20family%20celebrations%20on%20July%207th%20and%208th!"
+          target="_blank"
+          class="premium-btn rsvp-whatsapp"
+          >Confirm via WhatsApp</a
+        >
+      </div>
+    </div>
+
+    <div id="calendar-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('calendar-modal')">×</span>
+        <h2 class="font-display">Save the Date</h2>
+        <div class="divider"></div>
+        <p class="modal-text">Add these auspicious dates to your calendar.</p>
+        <a
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception:+Jeganraj+&+Niranjanadevi&dates=20260707T123000Z/20260707T163000Z&location=Sri+Veezhinathar+Temple"
+          target="_blank"
+          class="premium-btn outline-btn mb-2"
+          >Save Reception (July 7)</a
+        >
+        <a
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=60th+Anniversary:+Srinivasan+&+Sumathi&dates=20260708T033000Z/20260708T050000Z&location=Sri+Veezhinathar+Temple"
+          target="_blank"
+          class="premium-btn outline-btn"
+          >Save Anniversary (July 8)</a
+        >
+      </div>
+    </div>
+
+    <div id="image-modal" class="modal">
+      <span
+        class="close-btn"
+        onclick="closeModal('image-modal')"
+        style="z-index: 1000; color: white"
+        >×</span
+      >
+      <div
+        id="panzoom-container"
+        style="
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <img class="modal-content-img" id="full-size-img" />
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
