@@ -102,7 +102,7 @@
           <p class="time">6:00 PM onwards</p>
         </div>
       </section>
-
+<div class="divider"></div>
       <section class="event-card animate-on-scroll">
         <p class="event-label">Event Two</p>
         <h2 class="font-display event-title">60th Wedding Anniversary</h2>
@@ -127,20 +127,32 @@
         <div class="divider"></div>
         <p>We look forward to your gracious presence.</p>
         <h4 class="font-display">Srinivasan Pillai & Family</h4>
-        <br /><br /><br />
-      </footer>
+        <br />
+        <a
+          href="https://pragadeeshfolio.netlify.app/"
+          target="_blank"
+          class="signature-link"
+          data-goatcounter-click="portfolio-signature-click"
+          data-goatcounter-title="Portfolio Signature Click"
+        >
+          Designed & Engineered by <strong> Pragadeesh Srinivasan</strong>
+        </a>
+      </footer> 
     </main>
 
     <nav class="bottom-nav">
-      <button class="nav-btn" onclick="openModal('location-modal')">
-        <i class="fa-solid fa-location-dot"></i><br /><span>Venue</span>
-      </button>
-      <button class="nav-btn rsvp-btn" onclick="openModal('rsvp-modal')">
-        <i class="fa-brands fa-whatsapp"></i><br /><span>RSVP</span>
-      </button>
-      <button class="nav-btn" onclick="openModal('calendar-modal')">
-        <i class="fa-solid fa-calendar-days"></i><br /><span>Calendar</span>
-      </button>
+      <!-- Buttons Row -->
+      <div class="nav-buttons">
+        <button class="nav-btn" onclick="openModal('location-modal')">
+          <i class="fa-solid fa-location-dot"></i><br /><span>Venue</span>
+        </button>
+        <button class="nav-btn rsvp-btn" onclick="openModal('rsvp-modal')">
+          <i class="fa-brands fa-whatsapp"></i><br /><span>RSVP</span>
+        </button>
+        <button class="nav-btn" onclick="openModal('calendar-modal')">
+          <i class="fa-solid fa-calendar-days"></i><br /><span>Calendar</span>
+        </button>
+      </div>
     </nav>
 
     <div id="location-modal" class="modal">

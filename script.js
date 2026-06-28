@@ -5,34 +5,37 @@ const bgMusic = document.getElementById("bg-music");
 
 // --- Door Entry Animation & Music Trigger ---
 function openDoors() {
-    window.scrollTo(0, 0);
-    
-    // 2. Unlock the scrolling 
-    document.body.classList.remove('no-scroll');
-    
-    const overlay = document.getElementById('door-overlay');
-    overlay.classList.add('doors-open');
-    
-    // NEW: Trigger the main content to elegantly scale up & fade in
-    document.querySelector('.container').classList.add('entered');
-    
-    // Attempt to play music automatically when user clicks the door
-    if (!isPlaying) {
-        bgMusic.play().then(() => {
-            isPlaying = true;
-            audioBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-            audioBtn.style.background = '#8B0000';
-        }).catch(err => console.log("Audio play prevented:", err));
-    }
+  window.scrollTo(0, 0);
 
-    // Hide the doors from DOM after animation completes (1.5s)
-    setTimeout(() => {
-        overlay.style.display = 'none';
-        
-        // Trigger the scroll animations for items currently in view
-        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-        elementsToAnimate.forEach(el => el.classList.add('visible'));
-    }, 1500);
+  // 2. Unlock the scrolling
+  document.body.classList.remove("no-scroll");
+
+  const overlay = document.getElementById("door-overlay");
+  overlay.classList.add("doors-open");
+
+  // NEW: Trigger the main content to elegantly scale up & fade in
+  document.querySelector(".container").classList.add("entered");
+
+  // Attempt to play music automatically when user clicks the door
+  if (!isPlaying) {
+    bgMusic
+      .play()
+      .then(() => {
+        isPlaying = true;
+        audioBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+        audioBtn.style.background = "#8B0000";
+      })
+      .catch((err) => console.log("Audio play prevented:", err));
+  }
+
+  // Hide the doors from DOM after animation completes (1.5s)
+  setTimeout(() => {
+    overlay.style.display = "none";
+
+    // Trigger the scroll animations for items currently in view
+    const elementsToAnimate = document.querySelectorAll(".animate-on-scroll");
+    elementsToAnimate.forEach((el) => el.classList.add("visible"));
+  }, 1500);
 }
 
 // --- Scroll Animations (Intersection Observer) ---
@@ -51,10 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
   elementsToAnimate.forEach((el) => observer.observe(el));
 });
 
-// --- Modal Logic ---
 function openModal(modalId) {
   const modal = document.getElementById(modalId);
   modal.style.display = "flex";
+  document.body.classList.add("no-scroll"); // Locks background scrolling
+
   setTimeout(() => {
     modal.classList.add("show");
   }, 10);
@@ -63,15 +67,19 @@ function openModal(modalId) {
 function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   modal.classList.remove("show");
+  document.body.classList.remove("no-scroll"); // Unlocks background scrolling
+
   setTimeout(() => {
     modal.style.display = "none";
   }, 300);
 }
 
-// Close modals if user clicks outside the content box
+// Also update the window.onclick to unlock scrolling if they click outside the modal
 window.onclick = function (event) {
   if (event.target.classList.contains("modal")) {
     event.target.classList.remove("show");
+    document.body.classList.remove("no-scroll"); // Unlocks background scrolling
+
     setTimeout(() => {
       event.target.style.display = "none";
     }, 300);
@@ -91,15 +99,24 @@ function openImageModal(imgSrc) {
   }
 
   currentPanzoom = Panzoom(fullImg, {
-        maxScale: 5,
-        minScale: 1, // Ensures it doesn't shrink smaller than the screen
-        step: 0.3,
-        // We removed 'contain: outside' so it stops cropping the edges!
-    });
+    maxScale: 5,
+    minScale: 1, // Ensures it doesn't shrink smaller than the screen
+    step: 0.3,
+    // We removed 'contain: outside' so it stops cropping the edges!
+  });
 
   // Enable mouse wheel zooming for desktop users
-  container.addEventListener("wheel", currentPanzoom.zoomWithWheel);
-} 
+//  container.addEventListener("wheel", currentPanzoom.zoomWithWheel);
+}
+// Add this once at the top of your script, outside of any functions:
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("panzoom-container");
+  container.addEventListener("wheel", function(e) {
+      if (currentPanzoom) {
+          currentPanzoom.zoomWithWheel(e);
+      }
+  });
+});
 
 // --- Audio Toggle Logic ---
 audioBtn.addEventListener("click", () => {
